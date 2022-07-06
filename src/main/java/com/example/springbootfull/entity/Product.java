@@ -3,10 +3,7 @@ package com.example.springbootfull.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -15,11 +12,13 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Data
-public class Product implements Serializable {
+@Table(name = "Product_Tbl")
+public class Product  {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private int id;
     private String name;
+    private String lastName;
 }

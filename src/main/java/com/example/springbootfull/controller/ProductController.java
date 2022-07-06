@@ -39,10 +39,10 @@ public class ProductController {
         return "*--Successfully Deleted--*";
     }
 
-    @PutMapping
-    public Product updateProduct(@RequestBody Product product){
-        service.updateProduct(product);
-        return  product;
+    @PutMapping("/{id}")
+    public Product updateProduct(@RequestBody Product product,@PathVariable int id){
+       return service.updateProduct(product,id);
+
     }
 
 }

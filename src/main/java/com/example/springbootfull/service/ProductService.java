@@ -47,9 +47,13 @@ public class ProductService {
         return "*--Successfully Deleted--*";
     }
 
-    public Product updateProduct(Product product){
-        repository.save(product);
-        return product;
+    public Product updateProduct(Product product, int id){
+        Product existingProduct = repository.findById(id).orElse(null);
+        existingProduct.setId(product.getId());
+        existingProduct.setName(product.getName());
+        Product product1= repository.save(existingProduct);
+        return product1;
+
     }
 
 }
