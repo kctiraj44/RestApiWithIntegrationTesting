@@ -15,6 +15,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Data
+@ToString
 public class Product implements Serializable {
 
 

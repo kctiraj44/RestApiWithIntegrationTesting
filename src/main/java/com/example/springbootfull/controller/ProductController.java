@@ -30,6 +30,7 @@ public class ProductController {
     @GetMapping("/{id}")
     public Product getOneProduct(@PathVariable int id){
         Product product = service.getByItem(id);
+        System.out.println("*--The product added for testing is---:"+product);
         return product;
     }
 
