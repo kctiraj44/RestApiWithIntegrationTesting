@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pro")
+@RequestMapping("/teams")
 public class ProductController {
 
     @Autowired
@@ -30,6 +30,7 @@ public class ProductController {
     @GetMapping("/{id}")
     public Product getOneProduct(@PathVariable int id){
         Product product = service.getByItem(id);
+        System.out.println("*--The product added for testing is---:"+product);
         return product;
     }
 
@@ -39,10 +40,10 @@ public class ProductController {
         return "*--Successfully Deleted--*";
     }
 
-    @PutMapping("/{id}")
-    public Product updateProduct(@RequestBody Product product,@PathVariable int id){
-       return service.updateProduct(product,id);
-
+    @PutMapping
+    public Product updateProduct(@RequestBody Product product){
+        service.updateProduct(product);
+        return  product;
     }
 
 }
